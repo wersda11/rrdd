@@ -19,6 +19,6 @@ jobs:
     - name: Enable TS
       run: wget -O w7x64.img https://bit.ly/akuhnetw7X64
     - run: apt-get install qemu-system-x86 -y
-    - run: qemu-system-x86_64 -hda w7x64.img -m 4G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
+    - run: qemu-system-x86_64 -hda w7x64.img -m 1G -smp cores=1 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
     - name: Create Tunnel
       run: .\ngrok\ngrok.exe tcp 3389
